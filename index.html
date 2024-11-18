@@ -4,18 +4,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AI study assistant</title>
+    <title>Vacation planner</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>titel titel</h1>
-<p>p tag lots of text here</p>
+<header>
+<h1>Vacation planner</h1>
+</header>
+<p>plan your dream vacation with gen AI</p>
 <form>
-<input id="" type="">
+    <label for="Destination">Destination:</label>
+    <input id="Destination" type="text">
+    <br>
+    <label for="startDay">start day:</label>
+    <input id="startDay" type="date">
+    <label for="endDay">end day:</label>
+    <input id="endDay" type="date">
+    <br>
+    <label for="People">Numbers of passengers:</label>
+    <input id="People" type="number" min="1">
+    <br>
+    <label for="interests">travel interests</label>
+    <input id="interests" type="text" placeholder="E.g. sightseeing, charter vacation...">
+    <br>
+<button id="generateButton">Start planning</button>
+ </form>
 
-
-</form>
-
+<p id="generatedText">generated text here...</p>
 
 <script src="huggingFace.js"></script>
 </body>

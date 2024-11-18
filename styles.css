@@ -1,0 +1,162 @@
+
+/*
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: arial, sans-serif;
+    background-color: darkblue;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px;
+}
+
+p {
+    color: black;
+    margin: 10px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+
+
+#generatedText {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px dashed;
+    border-radius: 18px;
+    line-height: 1.5;
+}
+*/
+
+
+
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(#03002e, #090088);
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background: #0B2F9F;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+/* Form styles */
+form {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+    color: #161D6F;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #161D6F;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #161D6F;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #0B2F9F;
+    box-shadow: 0 0 4px rgba(11, 47, 159, 0.5);
+}
+
+button {
+    background-color: #fff;
+    color: #161D6F;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: gray;
+
+}
+
+/* Generated text */
+#generatedText {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-style: italic;
+    color: #0B2F9F;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}

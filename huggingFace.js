@@ -1,4 +1,4 @@
-const API_KEY = "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";
+const API_KEY = prompt("Enter your API token here");
 
 function logSuggestion() {
     fetch("https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct/v1/chat/completions", {
@@ -12,7 +12,8 @@ function logSuggestion() {
             messages: [
                 {
                     role: "user",
-                    content: "How do I add a new element to a JavaScript array?"
+                    content: "" + "The generated text should include destination, days and how many people are going on vacation" +
+"important always answer in JSON "
                 }
             ],
             max_tokens: 500,
@@ -32,4 +33,4 @@ function logSuggestion() {
         .catch(error => console.error(error));
 }
 
-//logSuggestion();
+logSuggestion();

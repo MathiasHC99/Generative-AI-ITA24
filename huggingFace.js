@@ -12,8 +12,12 @@ function logSuggestion() {
             messages: [
                 {
                     role: "user",
-                    content: "" + "The generated text should include destination, days and how many people are going on vacation" +
-"important always answer in JSON "
+                    content: "Plan a vacation with the following details: Destination, start date, end date, number of travelers, interests"
+                        + "come with a full description for what you can do each day"
+                        + "Dont ask the user what you should add to the plan, they have already given you all the necessary details"
+                        + "the output should come as a json string"
+
+
                 }
             ],
             max_tokens: 500,

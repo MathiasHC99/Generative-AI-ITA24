@@ -11,65 +11,37 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault(); // Prevent form submission
 
         // Collect user input
-        const destination = destinationInput.value;
-        const startDay = startDayInput.value;
-        const endDay = endDayInput.value;
-        const people = peopleInput.value;
-        const interests = interestsInput.value;
+        const destination = destinationInput.value.trim();
+        const startDay = startDayInput.value.trim();
+        const endDay = endDayInput.value.trim();
+        const people = peopleInput.value.trim();
+        const interests = interestsInput.value.trim();
 
         if (!destination || !startDay || !endDay || !people || !interests) {
             generatedText.textContent = "Please fill in all fields before generating a plan.";
             return;
         }
 
-        // Prepare user message content
-        const userMessage = `
-            Plan a vacation for the following details:
-            - Destination: ${destination}
-            - Start Date: ${startDay}
-            - End Date: ${endDay}
-            - Number of Travelers: ${people}
-            - Interests: ${interests}
-        `;
+        // loading message
+        generatedText.textContent = "Generating your vacation plan";
+        let dots = 0;
 
-        // Override the logSuggestion function in huggingface.js
-        logSuggestion = function () {
-            fetch("https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${API_KEY}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    model: "meta-llama/Llama-3.1-8B-Instruct",
-                    messages: [
-                        {
-                            role: "user",
-                            content: userMessage
-                        }
-                    ],
-                    max_tokens: 500,
-                    stream: false
-                })
+        // ... loading animation
+        const interval = setInterval(() => {
+            dots = (dots + 1) % 4;
+            generatedText.textContent = `Generating your vacation plan${'.'.repeat(dots)}`;
+        }, 500);
+
+        // Fetch vacation plan
+        fetchVacationPlan(destination, startDay, endDay, people, interests)
+            .then(plan => {
+                clearInterval(interval);
+                generatedText.textContent = plan; // Display the fetched plan
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Error: ${response.statusText}`);
-                    }
-                    return response.json();
-                })
-                .then(suggestionData => {
-                    const suggestion = suggestionData.choices[0].message.content;
-                    generatedText.textContent = suggestion;
-                })
-                .catch(error => {
-                    console.error(error);
-                    generatedText.textContent = "Failed to generate a vacation plan. Please try again.";
-                });
-        };
-
-        // Call the modified logSuggestion function
-        logSuggestion();
+            .catch(error => {
+                clearInterval(interval);
+                console.error(error);
+                generatedText.textContent = "Failed to generate a vacation plan. Please try again.";
+            });
     });
 });
-

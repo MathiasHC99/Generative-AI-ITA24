@@ -11,27 +11,27 @@
 <header>
 <h1>Vacation planner</h1>
 </header>
-<p>plan your dream vacation with gen AI</p>
+<p>Plan your dream vacation with gen AI</p>
 <form>
     <label for="Destination">Destination:</label>
     <input id="Destination" type="text">
     <br>
-    <label for="startDay">start day:</label>
+    <label for="startDay">Start date:</label>
     <input id="startDay" type="date">
-    <label for="endDay">end day:</label>
+    <label for="endDay">End date:</label>
     <input id="endDay" type="date">
     <br>
     <label for="People">Numbers of passengers:</label>
     <input id="People" type="number" min="1">
     <br>
-    <label for="interests">travel interests</label>
+    <label for="interests">Travel interests</label>
     <input id="interests" type="text" placeholder="E.g. sightseeing, charter, history...">
     <br>
     <button id="generateButton">Start planning</button>
 
  </form>
 
-<p id="generatedText">generated text here...</p>
+<p id="generatedText">Generated text will be shown here :)</p>
 
 <script src="huggingFace.js"></script>
 <script type="module" src="main.js"></script>

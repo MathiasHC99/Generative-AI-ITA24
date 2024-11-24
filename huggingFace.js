@@ -1,13 +1,9 @@
 const API_KEY = prompt("Enter your API token here");
 
-function fetchVacationPlan(destination, startDay, endDay, people, interests) {
+function fetchVacationPlan() {
     const userMessage = `
         Plan a vacation for the following details:
-        - Destination: ${destination}
-        - Start Date: ${startDay}
-        - End Date: ${endDay}
-        - Number of Travelers: ${people}
-        - Interests: ${interests}
+        - Destination, Start Date, End Date, Number of Travelers, Interests
         Requirements for the plan:
         - provide a day-by-day itinerary with unique activities relevant to the destination and interests.
         - Include dining recommendations (breakfast, lunch, and dinner) for each day. 

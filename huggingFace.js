@@ -2,19 +2,28 @@ const API_KEY = prompt("Enter your API token here");
 
 function fetchVacationPlan() {
     const userMessage = `
-        Plan a vacation for the following details:
-        - Destination, Start Date, End Date, Number of Travelers, Interests
-        Requirements for the plan:
-        - provide a day-by-day itinerary with unique activities relevant to the destination and interests.
-        - Include dining recommendations (breakfast, lunch, and dinner) for each day. 
-        - Mention local events, festivals, or cultural highlights during the travel dates. 
-        - Return the plan as a JSON string in this format.
-        - Tailor the plan to the provided interests and number of travellers. 
-        - Avoid asking for more input; assume all details are given.
-        - avoid  ending the generated message with "user"
-        - make sure the plan is specific for the city or country that the user wants to visit. 
-        
-    `;
+    You are a vacation planning assistant. Using the details provided below, generate a complete vacation plan:
+    - Destination: [Insert destination]
+    - Start Date: [Insert start date]
+    - End Date: [Insert end date]
+    - Number of Travelers: [Insert number of travelers]
+    - Interests: [Insert interests]
+
+    Requirements:
+    1. Provide a day-by-day itinerary, tailored to the specific destination and interests.
+    2. Each day should include:
+       - Unique activities.
+       - Recommendations for breakfast, lunch, and dinner with specific restaurant names or food types.
+    3. Highlight any local events, festivals, or cultural experiences happening during the travel dates.
+    4. Suggest appropriate transportation options within the destination, such as public transit or car rentals, if relevant.
+    5. Include 2-3 travel tips related to the destination, such as packing advice, local customs, or weather expectations.
+
+    Notes:
+    - Ensure all recommendations are specific to the destination.
+    - Avoid providing instructions for how to create a plan.
+    - Do not end the response with any extraneous text like "user" or unrelated comments.
+`;
+
 
     return fetch("https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct/v1/chat/completions", {
         method: "POST",
@@ -30,7 +39,7 @@ function fetchVacationPlan() {
                     content: userMessage
                 }
             ],
-            max_tokens: 500,
+            max_tokens: 1000,
             stream: false
         })
     })

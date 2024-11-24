@@ -12,6 +12,7 @@ function fetchVacationPlan() {
         - Tailor the plan to the provided interests and number of travellers. 
         - Avoid asking for more input; assume all details are given.
         - avoid  ending the generated message with "user"
+        - make sure the plan is specific for the city or country that the user wants to visit. 
         
     `;
 
